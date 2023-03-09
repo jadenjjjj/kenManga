@@ -1,0 +1,91 @@
+.auth-container {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://res.cloudinary.com/dqqdwbrhs/image/upload/v1678372964/749693_lucyae.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center;
+  }
+  
+  .logo {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 20px 20px 0 20px; /* top, right, bottom, left */
+  }
+  
+
+  .auth-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    flex: 1;
+
+  }
+  
+  .auth-form h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    
+  }
+  
+  .auth-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-form .input-container {
+    margin-bottom: 20px;
+  }
+
+  .auth-form label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.auth-form input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+.auth-form button[type="submit"] {
+  background-color: #0047ab;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.auth-form p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.auth-form p span {
+  color: #0047ab;
+  cursor: pointer;
+}
+
+.auth-form p span:hover {
+  text-decoration: underline;
+}
+  
