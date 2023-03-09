@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getItems } from "../../api";
 
-const MangaList = () => {
+const MangaList = ({ user }) => {
   const [mangaList, setMangaList] = useState([]);
 
   useEffect(() => {

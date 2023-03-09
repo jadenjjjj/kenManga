@@ -12,6 +12,12 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
 
+  const handleLoginSuccess = (token) => {
+    localStorage.setItem("token", token);
+    setUser({ isLoggedIn: true });
+  };
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isLogin) {
