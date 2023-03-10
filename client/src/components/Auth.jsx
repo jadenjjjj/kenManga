@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const Auth = () => {
+const Auth = (props) => {
 
   const navigate = useNavigate();
 
@@ -14,8 +14,28 @@ const Auth = () => {
 
   const handleLoginSuccess = (token) => {
     localStorage.setItem("token", token);
-    setUser({ isLoggedIn: true });
+    fetch('http://localhost:4000/api/profile', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Request failed with status ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      const { user } = data;
+      props.setUser({ isLoggedIn: true, name: user.name, email: user.email });
+      console.log("Received token:", token, "name:", user.name, "email:", user.email);
+    })
+    .catch(error => {
+      console.error(error);
+      // Handle error fetching user data
+    });
   };
+  
   
 
   const handleSubmit = (e) => {
@@ -33,6 +53,8 @@ const Auth = () => {
         .then(response => response.json())
         .then(data => {
           console.log("Received login response:", data);
+          const { token, name, email } = data;
+          handleLoginSuccess(data.token, data.user);
           navigate("/mangas");
           // Handle response from the backend
         })

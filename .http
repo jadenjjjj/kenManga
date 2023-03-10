@@ -1,5 +1,5 @@
-# POST http://localhost:4000/api/signup
-#  Content-Type: application/json
+# GET http://localhost:4000/api/profile
+# Content-Type: application/json
 
 #    {
 #    "name": "test117",
@@ -7,10 +7,13 @@
 #    "password": "nAx2TGKDYRnWP7p"
 #  }
 
-# {
-#     "email": "test3@example.com",
-#     "password": "$2b$10$N7cWM6AK0M0a6bfgj5h6muM4Ruti4szLSuZhK32pVTS4/nJNytRuq"
-# }
+#  {
+#      "email": "test3@example.com",
+#      "password": "$2b$10$N7cWM6AK0M0a6bfgj5h6muM4Ruti4szLSuZhK32pVTS4/nJNytRuq"
+#  }
 
-  GET http://localhost:4000/api/mangas
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA4ZTdkZmVmOTU5NDYwNDcwYWM1MGEiLCJpYXQiOjE2NzgzMjk1Mzh9.dOqxuQZW5wTpmXVBN8EOwpPsCn3hafGrjJeNif0mU4g
+  # GET http://localhost:4000/api/mangas
+  # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA4ZTdkZmVmOTU5NDYwNDcwYWM1MGEiLCJpYXQiOjE2NzgzMjk1Mzh9.dOqxuQZW5wTpmXVBN8EOwpPsCn3hafGrjJeNif0mU4g
+
+GET http://localhost:4000/api/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhMDY4ODRmZjFkMDI2MGM5ZDI0NDUiLCJpYXQiOjE2Nzg0MDQyMzJ9.x6an6kjyNc2ooCm5BWnWqv2-55eVNdV_QFxHoiEpjYU
