@@ -4,6 +4,9 @@ import MangaList from './components/MangaList';
 import Auth from './components/Auth';
 import { useNavigate } from 'react-router-dom';
 import Profile from './components/Profile'; 
+import CreateManga from './components/Createmanga';
+import MangaImages from './components/MangaImages';
+import Suggestions from './components/Suggestions';
 
 import AddManga from './components/AddManga';
 import AuthContextProvider from '../context/AuthContext';
@@ -43,11 +46,15 @@ function App() {
           
           <Route exact path="mangas" 
             element={<MangaList/>} />
+
+          <Route path="/manga/:title" element={<MangaImages />} />
+
           
           <Route exact path="/profile" 
           element={<Profile user={user}
           />} />
 
+          <Route path="/create" element={<CreateManga/>} />
            
       </Routes>
     </div>

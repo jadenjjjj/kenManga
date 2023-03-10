@@ -9,6 +9,8 @@ const signupRouter = require("./routes/signupRouter");
 const passport = require('./services/googleStrategy'); 
 const authRouter = require('./routes/authRouter');
 const getMessage = require('./routes/getMessage');
+const createRouter = require('./routes/createRouter');
+const suggestions = require('./routes/suggestionsRouter')
 
 
 
@@ -82,6 +84,8 @@ app.use("/api", loginRouter);
 app.use("/api", signupRouter);
 app.use("/api", authRouter);
 app.use("/api", getMessage);
+app.use("/api", createRouter);
+app.use("/api", suggestions);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

@@ -1,4 +1,4 @@
-# GET http://localhost:4000/api/profile
+#  GET https://api.jikan.moe/v3/search/manga?q=Shingeki%20no%20Kyojin&page=1
 # Content-Type: application/json
 
 #    {
@@ -15,5 +15,28 @@
   # GET http://localhost:4000/api/mangas
   # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA4ZTdkZmVmOTU5NDYwNDcwYWM1MGEiLCJpYXQiOjE2NzgzMjk1Mzh9.dOqxuQZW5wTpmXVBN8EOwpPsCn3hafGrjJeNif0mU4g
 
-GET http://localhost:4000/api/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhMDY4ODRmZjFkMDI2MGM5ZDI0NDUiLCJpYXQiOjE2Nzg0MDQyMzJ9.x6an6kjyNc2ooCm5BWnWqv2-55eVNdV_QFxHoiEpjYU
+# 
+
+# POST http://localhost:4000/api/create
+# Content-Type: application/json
+
+# {
+#   "title": "Title of Mang3",
+#   "author": "test2",
+#   "genre": "action",
+#   "status": "Ongoing",
+#   "description": "This is a manga about..."
+# }
+
+POST http://localhost:4000/api/suggestions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhMDY4ODRmZjFkMDI2MGM5ZDI0NDUiLCJpYXQiOjE2Nzg0NDcxMzB9.QypKfTmqPWeDhdIwApc0fYvph6y0YOnaorMg6HBE_yo
+
+{
+  "title": "Test suggestion",
+  "description": "This is a test suggestion",
+  "createdBy": "640a06884ff1d0260c9d2445"
+}
+
+
+

@@ -1,91 +1,75 @@
+ body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/dqqdwbrhs/image/upload/v1678372964/749693_lucyae.jpg");
+  background-size: cover;
+  background-position: center;
+} 
+
 .auth-container {
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("https://res.cloudinary.com/dqqdwbrhs/image/upload/v1678372964/749693_lucyae.jpg");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center center;
-  }
-  
-  .logo {
-    float: left;
-    width: 100px;
-    height: 100px;
-    margin: 20px 20px 0 20px; /* top, right, bottom, left */
-  }
-  
-
-  .auth-form {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    flex: 1;
-
-  }
-  
-  .auth-form h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    
-  }
-  
-  .auth-form form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .auth-form .input-container {
-    margin-bottom: 20px;
-  }
-
-  .auth-form label {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.auth-form input {
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #f3f3f3;
+.auth-form {
+  margin: auto;
 }
 
-.auth-form button[type="submit"] {
-  background-color: #0047ab;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
+.auth-form h2 {
+  margin-bottom: 30px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container input {
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: none;
-  cursor: pointer;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.button-container {
   margin-top: 20px;
+}
+
+.button-container button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: #0069d9;
 }
 
 .auth-form p {
   margin-top: 20px;
-  font-size: 16px;
+  text-align: center;
 }
 
 .auth-form p span {
-  color: #0047ab;
+  color: #00ff80;
   cursor: pointer;
 }
 
 .auth-form p span:hover {
   text-decoration: underline;
 }
-  
