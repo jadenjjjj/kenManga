@@ -12,18 +12,23 @@ const suggestionSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ['planned', 'in progress', 'completed'],
-      default: 'planned'
+      enum: ['Planned', 'In Progress', 'Completed', 'in progress'],
+      default: 'Planned'
     },
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User'
+    },
+    text: {
+      type: String,
+      required: true
     }
   },
   {
     timestamps: true
   }
 );
+
 
 const Suggestion = model("Suggestion", suggestionSchema);
 

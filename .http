@@ -28,14 +28,16 @@
 #   "description": "This is a manga about..."
 # }
 
-POST http://localhost:4000/api/suggestions
+POST http://localhost:4000/api/suggestions 
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhMDY4ODRmZjFkMDI2MGM5ZDI0NDUiLCJpYXQiOjE2Nzg0NDcxMzB9.QypKfTmqPWeDhdIwApc0fYvph6y0YOnaorMg6HBE_yo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhMDY4ODRmZjFkMDI2MGM5ZDI0NDUiLCJpYXQiOjE2Nzg3MDY0NTh9.60KRpXM1DtQu47SaBFGtbYmHWP4CEwNhQvQZ1fX_tFo
 
 {
   "title": "Test suggestion",
-  "description": "This is a test suggestion",
-  "createdBy": "640a06884ff1d0260c9d2445"
+  "description": "This is a test suggestion.",
+  "status": "Planned",
+  "user": "640a06884ff1d0260c9d2445",
+  "text": "Lorem ipsum dolor sit amet."
 }
 
 

@@ -36,6 +36,7 @@ const Auth = (props) => {
       // Handle error fetching user data
     });
   };
+
   
   
 
@@ -54,9 +55,9 @@ const Auth = (props) => {
         .then(response => response.json())
         .then(data => {
           console.log("Received login response:", data);
-          const { token, name, email } = data;
-          handleLoginSuccess(data.token, data.user);
-          navigate("/mangas");
+          const { token, name, email, user } = data;
+          handleLoginSuccess(token, name, email);
+          navigate("/mangas", { state: { user }});
           // Handle response from the backend
         })
         .catch(error => console.error(error));

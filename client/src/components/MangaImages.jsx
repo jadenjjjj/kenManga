@@ -2,38 +2,48 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function MangaImages({ match }) {
-  const [images, setImages] = useState([]);
+function MangaImages() {
+  const [mangaInfo, setMangaInfo] = useState(null);
   const { title } = useParams();
 
   useEffect(() => {
-    const fetchMangaImages = async () => {
+    const fetchMangaInfo = async () => {
       try {
-        const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${title}&sfw`);
-        const anime = response.data.data[0];
-        if (anime && anime.endpoint) {
-          const response = await axios.get(`https://api.jikan.moe/v4${anime.endpoint}/pictures`);
-          setImages(response.data.pictures);
-        }
+        const response = await axios.get(`https://api.jikan.moe/v4/anime/118/characters`);
+        console.log("response: ",response.data);
+        const anime = response.data.results[0];
+        console.log("anime: " + anime)
+        setMangaInfo(anime);
       } catch (error) {
         console.log(error);
       }
     };
 
-    fetchMangaImages();
+    fetchMangaInfo();
   }, [title]);
 
   return (
     <div>
-      {images.length === 0 ?
-        <p>No images found.</p> :
-        images.map((image) => (
-          <img key={image.large} src={image.large} alt="" />
-        ))
-      }
+      {mangaInfo ? (
+        <div>
+          <h2>{mangaInfo.title}</h2>
+          <p>Synopsis: {mangaInfo.synopsis}</p>
+          <p>Type: {mangaInfo.type}</p>
+          <p>Status: {mangaInfo.status}</p>
+          <p>Start Date: {mangaInfo.start_date}</p>
+          <p>End Date: {mangaInfo.end_date}</p>
+          <p>Rating: {mangaInfo.rating}</p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
-  
 }
 
 export default MangaImages;
+
+
+
+
+

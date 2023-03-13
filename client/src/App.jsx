@@ -22,7 +22,7 @@ function App() {
   const handleLoginSuccess = (token, name, email) => {
     localStorage.setItem("token", token);
     setUser({ isLoggedIn: true, name:name, email:email });
-    console.log(user);
+    console.log("Received token is:", token, "name:", name, "email:", email);
   };
 
   const handleLogout = () => {
@@ -50,11 +50,19 @@ function App() {
           <Route path="/manga/:title" element={<MangaImages />} />
 
           
-          <Route exact path="/profile" 
+          <Route 
+          exact 
+          path="/profile" 
           element={<Profile user={user}
           />} />
 
           <Route path="/create" element={<CreateManga/>} />
+
+          <Route
+            exact
+            path="/suggestions"
+            element={<Suggestions user={user} />}/>
+
            
       </Routes>
     </div>

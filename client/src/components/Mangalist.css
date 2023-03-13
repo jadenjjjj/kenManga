@@ -25,6 +25,11 @@
     color: #000;
   }
   
+  .card-img-top {
+    max-height: 200px; /* adjust the value to your liking */
+  }
+
+  
   .header-nav {
     display: flex;
     justify-content: flex-end;

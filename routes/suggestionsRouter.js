@@ -4,36 +4,48 @@ const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const passport = require('passport');
 const User = require('../models/userModel');
+const bodyParser = require('body-parser');
 
 // Import the suggestion model
 const Suggestion = require('../models/SuggestionModel.js');
 
 // Import the authentication middleware
-const authMiddleware = require('../services/authMiddleware');
+// const authMiddleware = require('../services/authMiddleware');
+const isAuthenticated = (req, res, next) => {
+  console.log('Checking authentication...');
+  console.log('req.headers: ', req.headers);
 
-// Endpoint for creating a new suggestion
-router.post('/suggestions', authMiddleware, async (req, res) => {
-  const { title, description, createdBy } = req.body;
-
-  try {
-    // Check if createdBy field matches any name in the database
-    const userExists = await User.findOne({ name: createdBy });
-    if (!userExists) {
+  passport.authenticate('jwt', { session: false }, (err, user, info) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: 'Internal server error' });
+    }
+    if (!user) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
+    req.user = user;
+    next();
+  })(req, res, next);
+};
 
-    const newSuggestion = new Suggestion({
-      _id: uuidv4(),
-      title,
-      description,
-      createdBy,
+router.use(express.json());
+
+// Endpoint for creating a new suggestion
+router.post('/suggestions', isAuthenticated, async (req, res) => {
+  try {
+    const suggestion = new Suggestion({
+      title: req.body.title,
+      description: req.body.description,
+      status: req.body.status,
+      user: req.user._id,
+      text: req.body.text,
     });
 
-    const savedSuggestion = await newSuggestion.save();
-    res.status(201).json(savedSuggestion);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    const result = await suggestion.save();
+    res.status(201).json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
@@ -60,7 +72,7 @@ router.get('/suggestions/:id', async (req, res) => {
 });
 
 // Endpoint for updating a suggestion
-router.put('/suggestions/:id', authMiddleware, async (req, res) => {
+router.put('/suggestions/:id', isAuthenticated, async (req, res) => {
   try {
     const suggestion = await Suggestion.findById(req.params.id);
     suggestion.title = req.body.title;
@@ -76,7 +88,7 @@ router.put('/suggestions/:id', authMiddleware, async (req, res) => {
 });
 
 // Endpoint for deleting a suggestion
-router.delete('/suggestions/:id', authMiddleware, async (req, res) => {
+router.delete('/suggestions/:id', isAuthenticated, async (req, res) => {
   try {
     const suggestion = await Suggestion.findById(req.params.id);
 
